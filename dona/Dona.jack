@@ -1,0 +1,25 @@
+class Dona{
+    field int x, y, rext, rint;
+
+    constructor Dona new(int xc, int yc, int rextc, int rintc){
+        let x = xc;
+        let y = yc;
+        let rext = rextc;
+        let rint = rintc;
+        return this;
+    }
+
+    method void draw(){
+        do Screen.setColor(1);
+        do Screen.drawCircle(x,y,rext);
+        do Screen.setColor(0);
+        do Screen.drawCircle(x,y,rint);
+        do Screen.setColor(1);
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

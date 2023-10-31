@@ -1,0 +1,429 @@
+function Main.main 9
+push constant 5
+pop local 3
+push constant 6
+pop local 4
+push constant 5
+pop local 7
+push constant 5
+call Array.new 1
+pop local 0
+push constant 5
+call Array.new 1
+pop local 1
+push constant 5
+call Array.new 1
+pop local 2
+push constant 0
+pop local 5
+label WHILE_EXP0
+push local 5
+push constant 5
+lt
+not
+if-goto WHILE_END0
+push local 5
+push local 0
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 5
+push local 1
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 5
+push local 2
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 5
+push constant 1
+add
+pop local 5
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+pop local 8
+push constant 1
+pop local 6
+label WHILE_EXP1
+push local 4
+push constant 15
+lt
+not
+if-goto WHILE_END1
+call Screen.clearScreen 0
+pop temp 0
+push constant 0
+push constant 25
+call Output.moveCursor 2
+pop temp 0
+push constant 9
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push local 8
+call Output.printInt 1
+pop temp 0
+push local 3
+push local 4
+push local 6
+push local 0
+push local 1
+push local 2
+call Main.updateAliens 6
+pop temp 0
+push local 7
+call Main.nave 1
+pop temp 0
+push local 6
+push constant 10
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 4
+push constant 1
+add
+pop local 4
+push constant 0
+pop local 6
+push local 8
+push constant 100
+add
+pop local 8
+label IF_FALSE0
+push local 6
+push constant 1
+add
+pop local 6
+push constant 1000
+push local 4
+push constant 60
+call Math.multiply 2
+sub
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP1
+label WHILE_END1
+push constant 0
+return
+function Main.updateAliens 1
+push constant 0
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 5
+lt
+not
+if-goto WHILE_END0
+push local 0
+push argument 3
+add
+pop pointer 1
+push that 0
+push constant 0
+not
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+push constant 5
+call Math.multiply 2
+push argument 0
+add
+push argument 1
+push constant 4
+sub
+push argument 2
+call Main.draw 3
+pop temp 0
+label IF_FALSE0
+push local 0
+push argument 4
+add
+pop pointer 1
+push that 0
+push constant 0
+not
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 0
+push constant 5
+call Math.multiply 2
+push argument 0
+add
+push argument 1
+push constant 2
+sub
+push argument 2
+call Main.draw 3
+pop temp 0
+label IF_FALSE1
+push local 0
+push argument 5
+add
+pop pointer 1
+push that 0
+push constant 0
+not
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 0
+push constant 5
+call Math.multiply 2
+push argument 0
+add
+push argument 1
+push argument 2
+call Main.draw 3
+pop temp 0
+label IF_FALSE2
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Main.draw 1
+push constant 16384
+push argument 1
+push constant 32
+call Math.multiply 2
+push constant 16
+call Math.multiply 2
+add
+push argument 0
+add
+pop local 0
+push argument 2
+push constant 1
+eq
+push argument 2
+push constant 3
+eq
+or
+push argument 2
+push constant 5
+eq
+push argument 2
+push constant 7
+eq
+or
+or
+push argument 2
+push constant 9
+eq
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+push constant 224
+sub
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+sub
+push constant 1056
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+sub
+push constant 4080
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+sub
+push constant 7128
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+sub
+push constant 16380
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+sub
+push constant 12276
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+sub
+push constant 10260
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1632
+call Memory.poke 2
+pop temp 0
+label IF_FALSE0
+push argument 2
+push constant 2
+eq
+push argument 2
+push constant 4
+eq
+or
+push argument 2
+push constant 6
+eq
+push argument 2
+push constant 8
+eq
+or
+or
+push argument 2
+push constant 10
+eq
+or
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 0
+push constant 224
+sub
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+sub
+push constant 9252
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+sub
+push constant 12276
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+sub
+push constant 15324
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+sub
+push constant 16380
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+sub
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+sub
+push constant 2064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 4104
+call Memory.poke 2
+pop temp 0
+label IF_FALSE1
+push constant 0
+return
+function Main.nave 1
+push constant 24490
+push argument 0
+add
+pop local 0
+push local 0
+push constant 224
+sub
+push constant 384
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+sub
+push constant 384
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+sub
+push constant 4080
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+sub
+push constant 31710
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+sub
+push constant 5064
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+sub
+push constant 8184
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+sub
+push constant 3504
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 12684
+call Memory.poke 2
+pop temp 0
+push constant 0
+return

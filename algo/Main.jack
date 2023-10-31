@@ -1,0 +1,18 @@
+class Main{
+    function void main(){
+        do Output.moveCursor(0,0);
+        do Output.printString("Holaaaaaaa");
+
+        do Output.moveCursor(10,10);
+        do Output.printString("Sobelo rey");
+
+        do Screen.setColor(1);
+        do Screen.drawRectangle(50,50,50,50);
+        do Screen.drawCircle(100,100,20);
+        
+        do Screen.setColor(0);
+        do Screen.drawCircle(100,100,10);
+
+        return;
+    }
+}

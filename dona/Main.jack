@@ -1,0 +1,26 @@
+class Main{
+    function void main() {
+        var int x, y, rext, rint;
+        var Dona dona;
+
+        do Output.moveCursor(10,10);
+        let x = Keyboard.readInt("Ingrese posicion en X: ");
+        do Screen.clearScreen();
+        
+        do Output.moveCursor(10,10);
+        let y = Keyboard.readInt("Ingrese posicion en Y: ");
+        do Screen.clearScreen();
+
+        do Output.moveCursor(10,10);
+        let rext = Keyboard.readInt("Ingrese radio exterior: ");
+        do Screen.clearScreen();
+
+        do Output.moveCursor(10,10);
+        let rint = Keyboard.readInt("Ingrese radio interior: ");
+        do Screen.clearScreen();
+
+        let dona = Dona.new(x, y, rext, rint); 
+        do dona.draw();
+        return;
+    }
+}

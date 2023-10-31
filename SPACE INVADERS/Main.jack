@@ -1,0 +1,126 @@
+// Aliens en una matriz 3 x 4   (3 filas de 4 aliens)
+
+class Main{
+    function void main(){
+        var Array f1, f2, f3;
+        var int x, y, i, a, xnave, puntaje;
+
+        //posiciones de referencia iniciales de los aliens
+        let x = 5;
+        let y = 6; 
+
+        //posición inicial de la nave. Va de 0 a 10.
+        let xnave = 5;
+
+        // arrays con booleanos para verificar la existencia
+        // de los alienígenas de una fila (son 3 filas)
+        let f1 = Array.new(5);
+        let f2 = Array.new(5);
+        let f3 = Array.new(5);
+
+        // rellenando los arrays
+        let i = 0;
+        while(i < 5){
+            let f1[i] = true;
+            let f2[i] = true;
+            let f3[i] = true;
+            let i = i + 1;
+        }
+
+        let puntaje = 0;
+
+        // juego durante 15 bajadas de los aliens
+        // 15*5 frames
+        let a = 1;  // contador de animaciones
+        while(y < 15){
+
+            do Screen.clearScreen();
+
+            do Output.moveCursor(0,25);
+            do Output.printString("Puntaje: ");
+            do Output.printInt(puntaje);
+
+            do Main.updateAliens(x, y, a, f1, f2, f3);
+            do Main.nave(xnave);
+
+            // cada 10 cambios de animación , el alien baja
+            if(a = 10){
+                let y = y + 1;
+                let a = 0;
+                let puntaje = puntaje + 100;
+            }
+
+            let a = a + 1;
+            do Sys.wait(1000-(y*60));
+        }
+        return;
+    }
+
+    function void updateAliens(int x, int y, int a, Array f1, Array f2, Array f3){
+        var int i;
+        let i = 0;
+
+        // revisa a los aliens por fila, los que existan los dibuja
+        while(i < 5){
+            if(f1[i] = true){
+                do Main.draw((i*5) + x, y-4, a);
+            }
+            if(f2[i] = true){
+                do Main.draw((i*5) + x, y-2, a);
+            }
+            if(f3[i] = true){
+                do Main.draw((i*5) + x, y, a);
+            }
+            let i = i + 1;
+        }
+        return;
+    }
+
+    function void draw(int x, int y, int a) {
+        var int memAddress; 
+                    //   screen    vertical    horizontal
+        let memAddress = 16384  +  ((y*32)*16)  +  x;   //desde donde comienza el dibujo
+
+        // dependiendo del contador de animación, dibuja un sprite u otro
+        if ( (((a=1)|(a=3)) | ((a=5)|(a=7))) | (a=9) ) {
+            do Memory.poke(memAddress -224, 2064);
+            do Memory.poke(memAddress -192, 1056);
+            do Memory.poke(memAddress -160, 4080);
+            do Memory.poke(memAddress -128, 7128);
+            do Memory.poke(memAddress -96, 16380);
+            do Memory.poke(memAddress -64, 12276);
+            do Memory.poke(memAddress -32, 10260);
+            do Memory.poke(memAddress, 1632);
+        }
+        
+        if ( (((a=2)|(a=4)) | ((a=6)|(a=8))) | (a=10) ) {
+            do Memory.poke(memAddress -224, 2064);
+            do Memory.poke(memAddress -192, 9252);
+            do Memory.poke(memAddress -160, 12276);
+            do Memory.poke(memAddress -128, 15324);
+            do Memory.poke(memAddress -96, 16380);
+            do Memory.poke(memAddress -64, 8184);
+            do Memory.poke(memAddress -32, 2064);
+            do Memory.poke(memAddress, 4104);
+        }
+        return;
+    }
+
+    // nave pos 0-10, 5 mid
+    function void nave(int x) {
+        var int memAddress; 
+                    //   screen    vertical    horizontal
+        let memAddress = 24490 +  x;   //desde donde comienza el dibujo
+
+        do Memory.poke(memAddress -224, 384);
+        do Memory.poke(memAddress -192, 384);
+        do Memory.poke(memAddress -160, 4080);
+        do Memory.poke(memAddress -128, 31710);
+        do Memory.poke(memAddress -96, 5064);
+        do Memory.poke(memAddress -64, 8184);
+        do Memory.poke(memAddress -32, 3504);
+        do Memory.poke(memAddress, 12684);
+
+        return;
+    }
+}

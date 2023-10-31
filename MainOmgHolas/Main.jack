@@ -1,0 +1,11 @@
+// comentario sensual
+
+/** puta madre */
+
+class Main{
+    function void main(){
+        do Output.printString("Omg holas");
+        do Output.println();
+        return;
+    }
+}
