@@ -1,0 +1,30 @@
+class AlienDer{
+    method void drawUp(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress, 2080);
+        do Memory.poke(memAddress +32, 1088);
+        do Memory.poke(memAddress +64, 4064);
+        do Memory.poke(memAddress +96, 7088);
+        do Memory.poke(memAddress +128, 16376);
+        do Memory.poke(memAddress +160, 12264);
+        do Memory.poke(memAddress +192, 10280);
+        do Memory.poke(memAddress +224, 1728);
+        return;
+    }
+
+    method void drawDown(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress -224, 2080);
+        do Memory.poke(memAddress -192, 1088);
+        do Memory.poke(memAddress -160, 4064);
+        do Memory.poke(memAddress -128, 7088);
+        do Memory.poke(memAddress -96, 16376);
+        do Memory.poke(memAddress -64, 12264);
+        do Memory.poke(memAddress -32, 10280);
+        do Memory.poke(memAddress, 1728);
+        return;
+    }
+}
+

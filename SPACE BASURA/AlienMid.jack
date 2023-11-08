@@ -1,0 +1,45 @@
+class AlienMid{
+    field int x, y;
+
+    constructor AlienMid new(int xc, int yc){
+        let x = xc;
+        let y = yc;
+        do drawDown(y*32*16 + x);
+        return this;
+    }
+
+    method void update(int xc, int yc) {
+        let x = xc;
+        let y = yc;
+        do drawDown(y*32*16 + x);
+        return;
+    }
+
+    method void drawUp(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress, 2064);
+        do Memory.poke(memAddress +32, 1056);
+        do Memory.poke(memAddress +64, 4080);
+        do Memory.poke(memAddress +96, 7128);
+        do Memory.poke(memAddress +128, 16380);
+        do Memory.poke(memAddress +160, 12276);
+        do Memory.poke(memAddress +192, 10260);
+        do Memory.poke(memAddress +224, 1632);
+        return;
+    }
+
+    method void drawDown(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress -224, 2064);
+        do Memory.poke(memAddress -192, 1056);
+        do Memory.poke(memAddress -160, 4080);
+        do Memory.poke(memAddress -128, 7128);
+        do Memory.poke(memAddress -96, 16380);
+        do Memory.poke(memAddress -64, 12276);
+        do Memory.poke(memAddress -32, 10260);
+        do Memory.poke(memAddress, 1632);
+        return;
+    }
+}

@@ -1,0 +1,10 @@
+class Main{
+    function void main(){
+        var Juego juego;
+        let juego = Juego.new(); 
+        do juego.juego();
+        return;
+    }
+}
+
+

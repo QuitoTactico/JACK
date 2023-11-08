@@ -1,0 +1,29 @@
+class AlienIzq{
+    method void drawUp(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress, 1040);
+        do Memory.poke(memAddress +32, 544);
+        do Memory.poke(memAddress +64, 2032);
+        do Memory.poke(memAddress +96, 3544);
+        do Memory.poke(memAddress +128, 8188);
+        do Memory.poke(memAddress +160, 6132);
+        do Memory.poke(memAddress +192, 5140);
+        do Memory.poke(memAddress +224, 864);
+        return;
+    }
+
+    method void drawDown(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress -224, 1040);
+        do Memory.poke(memAddress -192, 544);
+        do Memory.poke(memAddress -160, 2032);
+        do Memory.poke(memAddress -128, 3544);
+        do Memory.poke(memAddress -96, 8188);
+        do Memory.poke(memAddress -64, 6132);
+        do Memory.poke(memAddress -32, 5140);
+        do Memory.poke(memAddress, 864);
+        return;
+    }
+}
