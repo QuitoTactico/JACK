@@ -1,0 +1,13 @@
+class Main{
+    function void main() {
+        var Dona dona;
+        let dona = Dona.new(200, 200, 40, 20, 1); 
+
+        while(true) {
+            dona.update();
+            dona.draw();
+        }
+
+        return;
+    }
+}

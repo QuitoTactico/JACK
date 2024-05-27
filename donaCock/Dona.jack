@@ -1,0 +1,34 @@
+class Dona{
+    field int x, y, rext, rint;
+    field int acceleration, speed; 
+
+    constructor Dona new(int xc, int yc, int rextc, int rintc, int acce){
+        let x = xc;
+        let y = yc;
+        let rext = rextc;
+        let rint = rintc;
+        let acceleration = acce;
+        do draw();
+        return this;
+    }
+
+    method void draw(){
+        do Screen.setColor(1);
+        do Screen.drawCircle(x,y,rext);
+        do Screen.setColor(0);
+        do Screen.drawCircle(x,y,rint);
+        return;
+    }
+
+    method void update() {
+        let speed = speed + acceleration;
+        let y = y + speed;
+        let x = x + 10
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

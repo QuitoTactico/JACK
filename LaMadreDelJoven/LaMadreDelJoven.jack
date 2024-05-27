@@ -1,0 +1,17 @@
+class LaMadreDelJoven{
+    function void main() {
+        // column 0
+        do Memory.poke(16384, 412);
+        do Memory.poke(16384 +32, 1014);
+        do Memory.poke(16384 +64, 563);
+        do Memory.poke(16384 +96, 563);
+        do Memory.poke(16384 +128, 1022);
+        do Memory.poke(16384 +160, 72);
+        do Memory.poke(16384 +192, 200);
+        do Memory.poke(16384 +224, 140);
+        do Memory.poke(16384 +256, 252);
+        do Memory.poke(16384 +288, 168);
+        do Memory.poke(16384 +320, 248);
+        return;
+    }
+}
